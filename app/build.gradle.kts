@@ -14,6 +14,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        //设置插桩测试运行程序
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
@@ -37,7 +38,8 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures {
-
+        viewBinding = true
+        buildConfig = true
     }
     packaging {
         resources {
@@ -51,7 +53,11 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+
     testImplementation(libs.junit)
+
     androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
+    androidTestImplementation("androidx.test:runner:1.6.1")
+    androidTestImplementation("androidx.test:rules:1.6.1")
 }
