@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  android: "2.1.2"
+
 jobs:
   unit-test:
     executor:
@@ -11,6 +14,20 @@ jobs:
       - android/run-tests:
           test-command: ./gradlew testDebug
       - android/save-gradle-cache
+  release-build:
+    executor:
+      name: android/android-machine
+      resource-class: xlarge
+    steps:
+      - checkout
+      - android/restore-gradle-cache
+      - android/restore-build-cache
+      - run:
+          name: Assemble release build
+          command: |
+            ./gradlew assembleRelease
+      - store_artifacts:
+          path: app/build/outputs/apk/release
   #  android-test:
   #  release-build:
   #workflows:
