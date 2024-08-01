@@ -54,7 +54,18 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
 
-    testImplementation(libs.junit)
+//    testImplementation(libs.junit)
+
+    // Required -- JUnit 4 framework
+    testImplementation("junit:junit:4.13.2")
+    // Optional -- Robolectric environment
+    testImplementation ("androidx.test:core:1.6.1")
+    // Optional -- Mockito framework
+    testImplementation ("org.mockito:mockito-core:2.28.2")
+    // Optional -- mockito-kotlin
+    testImplementation ("org.mockito.kotlin:mockito-kotlin:2.2.11")
+    // Optional -- Mockk framework
+    testImplementation("io.mockk:mockk:1.12.1")
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
