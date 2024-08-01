@@ -13,6 +13,9 @@ jobs:
           name: CheckJavaVersion
           command: java -version
       - run:
+          name: Cat JAVA_HOME
+          command: echo $JAVA_HOME
+      - run:
           name: Run Build and Tests
           command: ./gradlew assembleRelease
       - store_artifacts:
