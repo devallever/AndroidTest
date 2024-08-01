@@ -14,8 +14,9 @@ jobs:
           JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64 # 设置JAVA_HOME环境变量
     steps:
       - checkout
-      - run: java -version # 验证Java版本
-        name: RunJavaVersion
+      - run:
+          name: CheckJavaVersion
+          command: java -version
       - run:
           name: Run Build and Tests
           command: ./gradlew assembleRelease check -PCARGO_PROFILE=release
