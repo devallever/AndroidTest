@@ -1,7 +1,5 @@
 version: 2.1
 
-orbs:
-  android: "2.1.2"
 jobs:
   unit-test:
     executor:
