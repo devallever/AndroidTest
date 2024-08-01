@@ -1,35 +1,18 @@
-version: 2.1
-
-orbs:
-  android: "2.1.2"
-
+version: 2
 jobs:
-  unit-test:
-    executor:
-      name: android/android-docker
-      tag: 2022.08.1
+  build:
+    working_directory: ~/androidtest
+
+    docker:
+      - image: cimg/android:2022.12.1-ndk
+    environment:
+      GRADLE_OPTS: -Dorg.gradle.workers.max=1 -Dorg.gradle.daemon=false -Dkotlin.compiler.execution.strategy="in-process"
+      RUST_VERSION: 1.67.0
     steps:
       - checkout
-      - android/restore-gradle-cache
-      - android/run-tests:
-          test-command: ./gradlew testDebug
-      - android/save-gradle-cache
-  release-build:
-    executor:
-      name: android/android-machine
-      resource-class: xlarge
-    steps:
-      - checkout
-      - android/restore-gradle-cache
-      - android/restore-build-cache
       - run:
-          name: Assemble release build
-          command: |
-            ./gradlew assembleRelease
+          name: Run Build and Tests
+          command: ./gradlew assembleRelease check -PCARGO_PROFILE=release
       - store_artifacts:
-          path: app/build/outputs/apk/release
-#  android-test:
-#  release-build:
-#workflows:
-#  test-and-build:
-  # We'll get to this later
+          path: app/build/outputs/apk
+          destination: apk/app
