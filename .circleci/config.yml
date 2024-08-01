@@ -9,11 +9,13 @@ jobs:
         environment:
           GRADLE_OPTS: -Dorg.gradle.workers.max=1 -Dorg.gradle.daemon=false -Dkotlin.compiler.execution.strategy="in-process"
           RUST_VERSION: 1.67.0
-      - image: "openjdk:17"
+      - image: openjdk:17
         environment:
           JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64 # 设置JAVA_HOME环境变量
     steps:
       - checkout
+      - run: java -version # 验证Java版本
+        name: RunJavaVersion
       - run:
           name: Run Build and Tests
           command: ./gradlew assembleRelease check -PCARGO_PROFILE=release
