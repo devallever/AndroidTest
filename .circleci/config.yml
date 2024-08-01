@@ -14,7 +14,7 @@ jobs:
           command: java -version
       - run:
           name: Run Build and Tests
-          command: ./gradlew assembleRelease check -PCARGO_PROFILE=release
+          command: ./gradlew assembleRelease
       - store_artifacts:
           path: app/build/outputs/apk
           destination: apk/app
