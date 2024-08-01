@@ -5,9 +5,11 @@ jobs:
 
     docker:
       - image: "openjdk:17"
-      - image: circleci/android:api-33
+      - image: cimg/android:2024.07
     steps:
       - checkout
+      - run: ./gradlew androidDependencies
+      - run: ./gradlew lint test
       - run:
           name: CheckJavaVersion
           command: java -version
