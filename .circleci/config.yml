@@ -5,7 +5,7 @@ jobs:
 
     docker:
       - image: "openjdk:17"
-      - image: circleci/android:api-34
+      - image: circleci/android:api-33
     steps:
       - checkout
       - run:
