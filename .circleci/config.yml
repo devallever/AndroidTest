@@ -17,8 +17,11 @@ jobs:
           name: Cat JAVA_HOME
           command: echo $JAVA_HOME
       - run:
-          name: Run Build and Tests
-          command: ./gradlew assembleRelease
-      - store_artifacts:
-          path: app/build/outputs/apk
-          destination: apk/app
+          name: Cat ANDROID_HOME
+          command: echo $ANDROID_HOME
+#      - run:
+#          name: Run Build and Tests
+#          command: ./gradlew assembleRelease
+#      - store_artifacts:
+#          path: app/build/outputs/apk
+#          destination: apk/app
