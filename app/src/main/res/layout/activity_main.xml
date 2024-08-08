@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <com.example.androidunittest.GradientLinearLayout
+        android:id="@+id/giantLinearLayout"
+        android:padding="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="60dp"
@@ -25,6 +27,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ClickMe" />
-    </LinearLayout>
+        <com.example.androidunittest.GradientCircleView
+            android:id="@+id/giantCircleView"
+            android:layout_width="160dp"
+            android:layout_height="160dp"/>
+    </com.example.androidunittest.GradientLinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
