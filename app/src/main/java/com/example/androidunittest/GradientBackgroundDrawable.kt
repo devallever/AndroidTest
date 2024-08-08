@@ -38,10 +38,10 @@ class GradientBackgroundDrawable : Drawable() {
             locationList.add(0.5f)
         }
         val shader = LinearGradient(
-            0f,
-            0f,
             width,
-            height,
+            0f,
+            width * 0.1f,
+            height * 0.95f,
             colorList.toIntArray(),
             null,
             Shader.TileMode.CLAMP

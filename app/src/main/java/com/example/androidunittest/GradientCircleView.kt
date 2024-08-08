@@ -44,10 +44,10 @@ class GradientCircleView(
                 colorList.add(Color.parseColor(it))
             }
             val shader = LinearGradient(
-                0f,
-                0f,
                 measuredWidth.toFloat(),
-                measuredWidth.toFloat(),
+                0f,
+                measuredWidth.toFloat() * 0.1f,
+                measuredWidth.toFloat() * 0.9f,
                 colorList.toIntArray(),
                 null,
                 TileMode.CLAMP

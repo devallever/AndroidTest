@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this@MainActivity, "click me666", Toast.LENGTH_SHORT).show()
             }
 
-            giantLinearLayout.setColorList(mutableListOf("#ffff00","#000000", "#00ffff"))
+            giantLinearLayout.setColorList(mutableListOf("#ffff00", "#00ffff"))
             giantCircleView.setColor("#ff0000")
             giantCircleView.setColorList(mutableListOf("#ff0000", "#00ffff"))
         }
